@@ -10,7 +10,7 @@ let bonusPaymentInfo = {
     <div class="experience-layout">
       <div class="status-bar">
         <span>Current points: ${currentPoints}</span>
-        <span>Instructions</span>
+        <span>Bonus payment information</span>
       </div>
 
       <section class="instructions-panel">
@@ -32,7 +32,7 @@ let coverStoryInfo = {
     <div class="experience-layout">
       <div class="status-bar">
         <span>Current points: ${currentPoints}</span>
-        <span>Instructions</span>
+        <span>Cover story</span>
       </div>
 
       <section class="instructions-panel">
@@ -63,7 +63,8 @@ for (const block of experienceSequence) {
       </div>
 
       <section class="instructions-panel">
-        <p>You may spend ${costProtection} to protect for this block.</p>
+        <p>It is the start of Year ${block.year}</p>
+        <p>You may choose to spend ${costProtection} points to protect your house from any water damage just for this year.</p>
       </section> 
 
       <section class="stimulus-panel">
@@ -91,10 +92,10 @@ for (const block of experienceSequence) {
 
         if (trial.outcome === "Shock") {
           if (protectedThisBlock) {
-            outcomeMessage = `A shock occurred. Your protection covered the repair cost.`;
+            outcomeMessage = `The water level rose this month, resulting in an overflow. The protection you paid for this year covered the repair cost of ${costShock} points.`;
           } else {
             currentPoints -= costShock;
-            outcomeMessage = `A shock occurred. You must spent ${costShock} points to repair.`;
+            outcomeMessage = `The water level rose this month, resulting in an overflow. You must spend ${costShock} points to repair your house.`;
           }
         }
 
@@ -128,10 +129,27 @@ for (const block of experienceSequence) {
 
 let measureExpectations = {
   type: jsPsychHtmlButtonResponse,
-  stimulus: `
-      <p>What is your expectation for the water level in the next several years?</p>
-    `,
-  choices: ["Stable", "Increasing"],
+  stimulus: function () {
+    return `
+    <div class="experience-layout">
+      <div class="status-bar">
+        <span></span>
+        <span>Measure of future expectations</span>
+      </div>
+
+      <section class="instructions-panel">
+        <p>The figures of the left represent different potential future trajectories of water levels that may play out over the next several years.</p>
+        
+        <p>Please indicate which future trajectory you expect will occur (note buttons on bottom).</p>
+        <p>(Also note; there are a multitude of ways to elicit people's beliefs about what wil happen in the future [e.g., rather than selecting from a list of options, we can ask them to manually generate future outcomes trial by trial]. This is just one way.)
+      </section> 
+
+      <section class="stimulus-panel">
+        <img src="assets/trajectories.png" width="550">
+      </section>
+    </div>`;
+  },
+  choices: ["Stable (safe)", "Increasing", "Stable (occasional shocks)"],
 };
 
 timeline.push(measureExpectations);
@@ -139,12 +157,13 @@ timeline.push(measureExpectations);
 let measureExpectationsExplanation = {
   type: jsPsychSurveyText,
   preamble: `
-    <p>You have indicated that you expect this will happen in the future.</p>
+    <p>You have indicated that you expect X will happen in the future.</p>
     `,
   questions: [
     {
-      prompt:
-        "Please explain you reasoning behind why you expect this to happen in the future.",
+      prompt: `
+        <p>Please explain your reasoning as to why you expect this to happen in the future.</p>,
+        <p>You may reference your experiences, your background knowledge, etc</p>`,
       rows: 5,
     },
   ],

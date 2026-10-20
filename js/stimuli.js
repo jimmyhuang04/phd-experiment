@@ -1,7 +1,7 @@
 let house = `
   <!-- House roof -->
   <polygon
-    points="170,135 200,105 230,135"
+    points="170,187 200,157 230,187"
     fill="#c98255"
     stroke="#34596b"
     stroke-width="2"
@@ -10,7 +10,7 @@ let house = `
   <!-- House body -->
   <rect
     x="178"
-    y="135"
+    y="187"
     width="44"
     height="45"
     fill="#f3d7a5"
@@ -71,10 +71,10 @@ const tankOutline = `
 
 function getWaterHeight(outcome) {
   if (outcome === "Shock") {
-    return 60; // Very high water
+    return 10; // Very high water
   }
 
-  return 160; // Normal water level
+  return 140; // Normal water level
 }
 
 /* =========================================
@@ -85,12 +85,9 @@ function getWaterHeight(outcome) {
    ========================================= */
 
 function createTankWater(waterHeight) {
-  // Fixed tank geometry
   const left = 41;
   const right = 159;
-  const bottom = 230;
-
-  // Wave shape, measured relative to the water level
+  const bottom = 220;
   const wave = 6;
 
   return `
@@ -102,9 +99,11 @@ function createTankWater(waterHeight) {
         T 100 ${waterHeight}
         T 130 ${waterHeight}
         T ${right} ${waterHeight}
+
         L ${right} ${bottom}
-        Q ${right} 232 100 232
-        Q ${left} 232 ${left} ${bottom}
+        C ${right} 236
+          ${left} 236
+          ${left} ${bottom}
         Z
       "
       fill="#43b5e5"
