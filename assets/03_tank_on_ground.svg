@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" width="240" height="280">
+  <!-- Ground shadow -->
+  <ellipse cx="100" cy="239" rx="67" ry="8" fill="#78909c" opacity=".22"/>
+
+  <!-- Tank body -->
+  <path d="M 40 55 L 40 220 C 40 235 160 235 160 220 L 160 55 Z"
+        fill="#edf8fc" stroke="#34596b" stroke-width="3"/>
+
+  <!-- Water -->
+  <path d="M 41 140 Q 55 134 70 140 T 100 140 T 130 140 T 159 140
+           L 159 220 C 159 232 41 232 41 220 Z"
+        fill="#43b5e5"/>
+
+  <!-- Tank outline and top ellipse -->
+  <path d="M 40 55 L 40 220 C 40 235 160 235 160 220 L 160 55"
+        fill="none" stroke="#34596b" stroke-width="3"/>
+  <ellipse cx="100" cy="55" rx="60" ry="14"
+           fill="#dce8ed" stroke="#34596b" stroke-width="3"/>
+
+  <!-- Ground line -->
+  <path d="M 20 239 H 180" stroke="#8a9aa2" stroke-width="2"/>
+</svg>

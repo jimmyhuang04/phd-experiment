@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" width="240" height="280">
+  <!-- Tank body -->
+  <path d="M 40 55 L 40 220 C 40 235 160 235 160 220 L 160 55"
+        fill="#eaf7fc" stroke="#34596b" stroke-width="3"/>
+
+  <!-- Water: move the top wave up or down to change the level -->
+  <path d="M 41 140 Q 55 134 70 140 T 100 140 T 130 140 T 159 140
+           L 159 220 C 159 232 41 232 41 220 Z"
+        fill="#43b5e5"/>
+
+  <!-- Simple elliptical rim -->
+  <ellipse cx="100" cy="55" rx="60" ry="14"
+           fill="#dce8ed" stroke="#34596b" stroke-width="3"/>
+  <path d="M 40 55 L 40 220 C 40 235 160 235 160 220 L 160 55"
+        fill="none" stroke="#34596b" stroke-width="3"/>
+</svg>

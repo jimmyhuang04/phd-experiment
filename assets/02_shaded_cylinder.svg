@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" width="240" height="280">
+  <defs>
+    <linearGradient id="glass" x1="0" x2="1">
+      <stop offset="0" stop-color="#b7dbe9"/>
+      <stop offset=".25" stop-color="#f5fcff"/>
+      <stop offset=".75" stop-color="#e5f5fb"/>
+      <stop offset="1" stop-color="#8ab8cc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Tank body -->
+  <path d="M 40 55 L 40 220 C 40 235 160 235 160 220 L 160 55 Z"
+        fill="url(#glass)" stroke="#34596b" stroke-width="3"/>
+
+  <!-- Water -->
+  <path d="M 41 140 Q 55 134 70 140 T 100 140 T 130 140 T 159 140
+           L 159 220 C 159 232 41 232 41 220 Z"
+        fill="#43b5e5" fill-opacity=".9"/>
+
+  <!-- Waterline highlight -->
+  <path d="M 41 140 Q 55 134 70 140 T 100 140 T 130 140 T 159 140"
+        fill="none" stroke="#d8f7ff" stroke-width="3"/>
+
+  <!-- Elliptical top rim -->
+  <ellipse cx="100" cy="55" rx="60" ry="14"
+           fill="#dce8ed" stroke="#34596b" stroke-width="3"/>
+  <path d="M 40 55 L 40 220 C 40 235 160 235 160 220 L 160 55"
+        fill="none" stroke="#34596b" stroke-width="3"/>
+  <path d="M 49 72 L 49 207" stroke="#fff" stroke-width="4"
+        stroke-linecap="round" opacity=".75"/>
+</svg>

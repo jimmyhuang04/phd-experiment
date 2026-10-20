@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="620" viewBox="0 0 520 620" role="img" aria-labelledby="title desc">
+  <title id="title">Cylindrical water tank with a wavy half-full water surface</title>
+  <desc id="desc">A transparent-background illustration of a shaded cylindrical tank resting on the ground, half filled with blue water.</desc>
+
+  <defs>
+    <!-- Tank interior clipping keeps the water inside the cylindrical body. -->
+    <clipPath id="tankInterior">
+      <path d="M 126,116
+               C 126,98 186,86 260,86
+               C 334,86 394,98 394,116
+               L 394,440
+               C 394,462 334,476 260,476
+               C 186,476 126,462 126,440 Z"/>
+    </clipPath>
+
+    <linearGradient id="tankGlass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d8e8ef" stop-opacity=".82"/>
+      <stop offset=".12" stop-color="#ffffff" stop-opacity=".30"/>
+      <stop offset=".32" stop-color="#e8f5fa" stop-opacity=".10"/>
+      <stop offset=".72" stop-color="#b8d5e2" stop-opacity=".12"/>
+      <stop offset=".92" stop-color="#6f9eb4" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#4c7e96" stop-opacity=".42"/>
+    </linearGradient>
+
+    <linearGradient id="waterFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#79d5f4" stop-opacity=".88"/>
+      <stop offset=".42" stop-color="#38aee2" stop-opacity=".82"/>
+      <stop offset="1" stop-color="#167ebd" stop-opacity=".92"/>
+    </linearGradient>
+
+    <linearGradient id="rimMetal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fcff"/>
+      <stop offset=".25" stop-color="#b8c8d1"/>
+      <stop offset=".55" stop-color="#eef4f7"/>
+      <stop offset="1" stop-color="#8298a4"/>
+    </linearGradient>
+
+    <linearGradient id="sideShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#164c6b" stop-opacity=".28"/>
+      <stop offset=".13" stop-color="#ffffff" stop-opacity=".12"/>
+      <stop offset=".5" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset=".86" stop-color="#15516f" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#123d55" stop-opacity=".35"/>
+    </linearGradient>
+
+    <linearGradient id="groundShadow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#203b4a" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#203b4a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Soft contact shadow; the background itself remains transparent. -->
+  <ellipse cx="260" cy="488" rx="143" ry="17" fill="url(#groundShadow)"/>
+
+  <!-- Main water body, clipped to the tank interior. -->
+  <g clip-path="url(#tankInterior)">
+    <rect x="126" y="86" width="268" height="390" fill="#d9edf5" fill-opacity=".13"/>
+
+    <!-- Half-full water. Change the y-coordinates of this path to change the level. -->
+    <path id="water"
+      d="M 126,280
+         C 145,270 161,289 181,280
+         S 218,271 238,280
+         S 275,289 295,280
+         S 332,271 352,280
+         S 380,287 394,279
+         L 394,476 L 126,476 Z"
+      fill="url(#waterFill)"/>
+
+    <!-- Subtle light bands within the water. -->
+    <path d="M 130,309 C 190,317 324,301 390,311"
+      fill="none" stroke="#c9f2ff" stroke-opacity=".20" stroke-width="3"/>
+    <path d="M 130,421 C 205,429 319,416 390,423"
+      fill="none" stroke="#075d9a" stroke-opacity=".16" stroke-width="5"/>
+
+    <!-- Glass shading sits above the water, preserving its visibility. -->
+    <rect x="126" y="86" width="268" height="390" fill="url(#tankGlass)"/>
+    <rect x="126" y="86" width="268" height="390" fill="url(#sideShade)"/>
+  </g>
+
+  <!-- Tank outline and rounded cylindrical bottom. -->
+  <path d="M 126,116 L 126,440
+           C 126,462 186,476 260,476
+           C 334,476 394,462 394,440
+           L 394,116"
+        fill="none" stroke="#476d80" stroke-width="3.2" stroke-linejoin="round"/>
+
+  <!-- Left and right vertical reflections. -->
+  <path d="M 139,130 L 139,430"
+        fill="none" stroke="#ffffff" stroke-opacity=".78" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 151,135 L 151,420"
+        fill="none" stroke="#ffffff" stroke-opacity=".34" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M 381,132 L 381,430"
+        fill="none" stroke="#285e78" stroke-opacity=".28" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- The wave is drawn again on top of the glass sheen for a crisp waterline. -->
+  <path d="M 126,280
+           C 145,270 161,289 181,280
+           S 218,271 238,280
+           S 275,289 295,280
+           S 332,271 352,280
+           S 380,287 394,279"
+        fill="none" stroke="#d7f7ff" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M 126,284
+           C 145,274 161,293 181,284
+           S 218,275 238,284
+           S 275,293 295,284
+           S 332,275 352,284
+           S 380,291 394,283"
+        fill="none" stroke="#168fc9" stroke-opacity=".85" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Top elliptical rim: back edge, metallic band, and inner lip. -->
+  <path d="M 126,116 C 126,98 186,86 260,86 C 334,86 394,98 394,116"
+        fill="none" stroke="#526f7e" stroke-width="3"/>
+  <path d="M 126,116
+           C 126,98 186,86 260,86
+           C 334,86 394,98 394,116
+           C 394,134 334,146 260,146
+           C 186,146 126,134 126,116 Z"
+        fill="url(#rimMetal)" stroke="#476777" stroke-width="3"/>
+  <ellipse cx="260" cy="116" rx="130.5" ry="24.8"
+           fill="#edf7fb" fill-opacity=".42" stroke="#ffffff" stroke-opacity=".75" stroke-width="1.4"/>
+  <path d="M 133,116 C 148,101 202,93 260,93 C 318,93 372,101 387,116"
+        fill="none" stroke="#ffffff" stroke-opacity=".9" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M 132,121 C 151,136 204,141 260,141 C 316,141 369,136 388,121"
+        fill="none" stroke="#668493" stroke-opacity=".65" stroke-width="2"/>
+
+  <!-- Small lower edge highlight gives the base a rounded glass finish. -->
+  <path d="M 143,451 C 166,466 211,471 260,471 C 309,471 354,466 377,451"
+        fill="none" stroke="#e7f8ff" stroke-opacity=".78" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
